@@ -1,0 +1,99 @@
+<style>
+    .container, .message_container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .message_form, .titlebar {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .message_form {
+        margin-top: auto;
+    }
+
+    .message_input {
+        flex-grow: 1;
+        margin-right: 10px;
+        border-radius: 6px;
+        border: 1px solid black;
+        padding: 5px;
+    }
+
+    .message_submit, .start_pm_button, .pm_select {
+        border: 1px solid black;
+        padding: 5px;
+        border-radius: 6px;
+    }
+
+    .pm_select {
+        padding-right: 35px;
+    }
+
+    .titlebar_right {
+        margin-left: auto;
+    }
+
+    .message {
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        max-width: 90%;
+        margin-bottom: 4px;
+        overflow-wrap: break-word;
+    }
+
+    .message:last-child {
+        margin-bottom: 0px;
+    }
+
+    .message_author {
+        padding: 0px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .<%= current_user.id %>_message {
+        margin-left: auto;
+        text-align: right;
+        background: black;
+        color: white;
+    }
+
+    .hr {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 1px solid black;
+    }
+</style>
+
+
+<div class="container">
+    <div class="titlebar">
+        <p>
+            <%= @title %>
+        </p>
+
+        <div class="titlebar_right"> 
+            <%= link_to "Back to group", :back, class: "start_pm_button" %>
+        </div>
+    </div>
+
+    <hr class="hr"/>
+
+    <%= turbo_stream_from "private_messages" %>
+    <div class="message_container" id="private_messages">
+        <%= render @messages %>
+    </div>
+
+    <hr class="hr"/>
+
+    <%= form_with(model: [@group, PrivateMessage.new], remote: true, class: "message_form") do |form| %>
+        <%= form.text_field :content, class: "message_input", autocomplete: "off", placeholder: "Message" %>
+        <%= form.submit "Send", class: "message_submit" %>
+    <% end %>
+</div>
