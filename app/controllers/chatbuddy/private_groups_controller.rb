@@ -5,10 +5,10 @@ module Chatbuddy
                 pm_user = User.find(params[:private_group][:pm_user_id]);
                 users_string = generate_users_string current_user, pm_user
 
-                if not PrivateGroup.find_by(users_string: users_string)
-                    privategroup = PrivateGroup.create(users_string: users_string)
+                if not Chatbuddy::PrivateGroup.find_by(users_string: users_string)
+                    privategroup = Chatbuddy::PrivateGroup.create(users_string: users_string)
                 else 
-                    privategroup = PrivateGroup.find_by(users_string: users_string)
+                    privategroup = Chatbuddy::PrivateGroup.find_by(users_string: users_string)
                 end
 
                 respond_to do |format|
@@ -18,8 +18,8 @@ module Chatbuddy
         end
 
         def show 
-            @group = PrivateGroup.find(params["id"]);
-            @messages = PrivateMessage.where(private_group: @group)
+            @group = Chatbuddy::PrivateGroup.find(params["id"]);
+            @messages = Chatbuddy::PrivateMessage.where(private_group: @group)
 
             @user1, @user2 = @group.users_string.split("_")
             @user1 = User.find(@user1)

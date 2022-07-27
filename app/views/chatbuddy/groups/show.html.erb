@@ -75,7 +75,7 @@
 <div class="container">
     <div class="titlebar">
         <div class="titlebar_right">
-            <%= form_with(model: PrivateGroup.new, remote: true) do |form| %>
+            <%= form_with(model: Chatbuddy::PrivateGroup.new, remote: true) do |form| %>
                 <%= form.select :pm_user_id, @pm_list, {}, class: "pm_select" %>
                 <%= form.submit "Start private message", class: "start_pm_button" %>
             <% end %>
@@ -91,7 +91,7 @@
 
     <hr class="hr"/>
 
-    <%= form_with(model: [@group, Message.new], remote: true, class: "message_form") do |form| %>
+    <%= form_with(model: [@group, Chatbuddy::Message.new], remote: true, class: "message_form") do |form| %>
         <%= form.text_field :content, class: "message_input", autocomplete: "off", placeholder: "Message" %>
         <%= form.submit "Send", class: "message_submit" %>
     <% end %>
