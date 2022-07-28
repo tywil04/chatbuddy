@@ -1,8 +1,10 @@
 PATH
   remote: .
   specs:
-    chatbuddy (0.1.0)
+    chatbuddy (0.1.18)
+      importmap-rails
       rails (>= 7.0.3.1)
+      turbo-rails
 
 GEM
   remote: https://rubygems.org/
@@ -81,6 +83,9 @@ GEM
       activesupport (>= 5.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
+    importmap-rails (1.1.5)
+      actionpack (>= 6.0.0)
+      railties (>= 6.0.0)
     loofah (2.18.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -149,6 +154,10 @@ GEM
     strscan (3.0.4)
     thor (1.2.1)
     timeout (0.3.0)
+    turbo-rails (1.1.1)
+      actionpack (>= 6.0.0)
+      activejob (>= 6.0.0)
+      railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
     websocket-driver (0.7.5)
@@ -161,6 +170,7 @@ PLATFORMS
 
 DEPENDENCIES
   chatbuddy!
+  importmap-rails (~> 1.1)
   sprockets-rails
   sqlite3
 
