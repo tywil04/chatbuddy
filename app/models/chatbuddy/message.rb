@@ -1,8 +1,8 @@
 module Chatbuddy
   class Message < ApplicationRecord
     belongs_to :user
-    belongs_to :group
+    belongs_to :chatbuddy_group, class_name: "Group"
   
-    after_create_commit { broadcast_append_to "messages" }
+    after_create_commit { broadcast_append_to "chatbuddy_messages" }
   end
 end

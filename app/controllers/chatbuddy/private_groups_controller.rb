@@ -34,7 +34,7 @@ module Chatbuddy
 
         def generate_users_string user1, user2
             temp = [user1, user2].sort 
-            return temp[0].id + "_" + temp[1].id
+            return "#{temp[0].id}_#{temp[1].id}"
         end
     end
 end

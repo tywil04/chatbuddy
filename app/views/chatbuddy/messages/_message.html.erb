@@ -1,4 +1,4 @@
-<div class="message <%= "#{message.user.id}_message" %>">
+<div id="<%= dom_id message %>" class="message <%= "#{message.user.id}_message" %>">
     <p class="message_author"><%= message.user.get_alias %></p>
     <p><%= message.content %></p>
 </div>

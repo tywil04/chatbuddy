@@ -1,5 +1,5 @@
 module Chatbuddy 
     class PrivateGroup < ApplicationRecord
-        has_many :private_messages
+        has_many :chatbuddy_private_messages
     end
 end

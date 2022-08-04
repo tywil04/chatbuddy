@@ -1,5 +1,5 @@
 module Chatbuddy
     class Group < ApplicationRecord
-        has_many :messages
+        has_many :chatbuddy_messages
     end
 end
