@@ -3,6 +3,6 @@ module Chatbuddy
     belongs_to :user
     belongs_to :chatbuddy_private_group, class_name: "PrivateGroup"
   
-    after_create_commit { broadcast_append_to "chatbuddy_private_messages" }
+    after_create_commit { broadcast_append_to "chatbuddyprivatemessages", target: "chatbuddyprivatemessages" }
   end
 end

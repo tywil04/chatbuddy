@@ -3,6 +3,6 @@ module Chatbuddy
     belongs_to :user
     belongs_to :chatbuddy_group, class_name: "Group"
   
-    after_create_commit { broadcast_append_to "chatbuddy_messages" }
+    after_create_commit { broadcast_append_to "chatbuddymessages", target: "chatbuddymessages" }
   end
 end

@@ -149,10 +149,6 @@ GEM
     strscan (3.0.4)
     thor (1.2.1)
     timeout (0.3.0)
-    turbo-rails (1.1.1)
-      actionpack (>= 6.0.0)
-      activejob (>= 6.0.0)
-      railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
     websocket-driver (0.7.5)
@@ -167,7 +163,6 @@ DEPENDENCIES
   chatbuddy!
   sprockets-rails
   sqlite3
-  turbo-rails
 
 BUNDLED WITH
    2.3.7
